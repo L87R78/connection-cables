@@ -2,9 +2,7 @@
 @import "./src/assets/scss/mixins";
 
 .connectedCables {
-    width: 40%;
-    // overflow-x: auto;
-    // white-space: nowrap;
+    width: 60%;
     margin-left: 24px;
 
     .tableBody {
@@ -20,14 +18,14 @@
 
 @media only screen and (max-width: $small-screen) {
     .connectedCables {
-        width: 50%;
-        margin: 36px 0px 36px 0px;
+        flex-direction: column;
+        width: 80%;
+        margin: $base-padding auto;
     }
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 600px) {
     .connectedCables {
         width: 600px;
-        // margin: 36px 0px 36px 0px;
     }
 }

@@ -16,6 +16,10 @@ export const devices = defineStore({
 
       const selectedDevice = this.devicesData.find(item => item.id === selectedDeviceId);
 
+      if(!selectedDevice) {
+        return;
+      }
+
       const updatedDevices = this.devicesData.reduce((acc, current) => {
         if(current.id === device.id) {
 

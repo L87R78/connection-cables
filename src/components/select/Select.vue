@@ -5,7 +5,9 @@
         @click="$emit('handleSelectAvailableDevice', $event)">
         <option value="">Devices</option>
         <option 
-            v-for="device in storeDevices.availableDevicesData.filter(device => device.deviceName !== props.item.deviceName)"
+            v-for="device in storeDevices.availableDevicesData
+            .filter(device =>  device.deviceName !== props.item.deviceName)
+            .sort((a, b) => a.id - b.id)"
             :key="device.id" 
             :value='device.id'
         >
