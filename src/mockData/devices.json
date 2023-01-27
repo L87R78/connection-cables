@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "deviceName": "ABC1",
+        "portName": "P1",
+        "connectedTo": null,
+        "cable": null,
+        "action": "Connect"
+    },
+    {
+        "id": 2,
+        "deviceName": "ABC1",
+        "portName": "P2",
+        "connectedTo": null,
+        "cable": null,
+        "action": "Connect"
+    },
+    {
+        "id": 3,
+        "deviceName": "MNL5",
+        "portName": "P1",
+        "connectedTo": null,
+        "cable": null,
+        "action": "Connect"
+    },
+    {
+        "id": 4,
+        "deviceName": "MNL5",
+        "portName": "P2",
+        "connectedTo": null,
+        "cable": null,
+        "action": "Connect"
+    },
+    {
+        "id": 5,
+        "deviceName": "XYZ9",
+        "portName": "P1",
+        "connectedTo": null,
+        "cable": null,
+        "action": "Connect"
+    },
+    {
+        "id": 6,
+        "deviceName": "XYZ9",
+        "portName": "P2",
+        "connectedTo": null,
+        "cable": null,
+        "action": "Connect"
+    },
+    {
+        "id": 7,
+        "deviceName": "XYZ9",
+        "portName": "P3",
+        "connectedTo": null,
+        "cable": null,
+        "action": "Connect"
+    },
+    {
+        "id": 8,
+        "deviceName": "XYZ9",
+        "portName": "P4",
+        "connectedTo": null,
+        "cable": null,
+        "action": "Connect"
+    }
+]

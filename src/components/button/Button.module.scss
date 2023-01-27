@@ -1,0 +1,16 @@
+@import "./src/assets/scss/colors";
+@import "./src/assets/scss/mixins";
+
+.showCompleteButton {
+    @include buttonStyle;
+    background: $color-green;
+}
+
+.showDisconnetButton {
+    @include buttonStyle;
+    background: $color-red;
+}
+
+.hideButton {
+    display: none;
+}

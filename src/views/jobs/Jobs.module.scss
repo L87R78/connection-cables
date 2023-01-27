@@ -1,0 +1,47 @@
+@import "./src/assets/scss/colors";
+@import "./src/assets/scss/mixins";
+
+.jobs {
+    width: 60%;
+    overflow-x: auto;
+    white-space: nowrap;
+
+    .tableBody {
+       @include tableBodyStyle;
+       background: $color-blue-second;
+
+        .tableTitle {
+            background: $color-blue;
+            color: $color-black;
+        }
+
+        .connectButton {
+            @include buttonStyle;
+            background: $color-green;
+        }
+
+        .disconnectButton {
+            @include buttonStyle;
+            background: $color-red;
+        }
+
+       .statusPending {
+            background: $color-danger;
+       }
+
+       .statusCompleted {
+            background: $color-green-second;
+       }
+
+       .wrapperButton {
+            display: flex;
+            justify-content: center;
+       }
+    }
+}
+
+@media only screen and (max-width: $small-screen) {
+    .jobs {
+        width: 100%;
+    }
+}

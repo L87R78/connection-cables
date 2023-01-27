@@ -1,0 +1,13 @@
+@import "./src/assets/scss/colors";
+@import "./src/assets/scss/mixins";
+
+.select {
+  @include buttonStyle;
+  background: $color-green;
+  text-align: center;
+}
+
+select option {
+  color: $color-black;
+  font-size: 16px;
+}

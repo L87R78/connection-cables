@@ -1,0 +1,41 @@
+@import "./src/assets/scss/colors";
+@import "./src/assets/scss/mixins";
+
+.deviceMNL5 {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+
+    .tableBody {
+       @include tableBodyStyle;
+       background: $color-purple-second;
+
+       .tableTitle {
+            background: $color-purple;
+        }
+
+       .wrapperButton {
+            display: flex;
+            justify-content: center;
+
+            .showBtn {
+                visibility: visible;
+            }
+
+            .hideBtn {
+                visibility: hidden;
+            }
+
+            .hideSelect {
+                // visibility: hidden;
+                display: none;
+            }
+       }
+    }
+}
+
+@media only screen and (max-width: $small-screen) {
+    .deviceMNL5 {
+        width: 100%;
+    }
+}

@@ -1,0 +1,35 @@
+@import "./src/assets/scss/colors";
+@import "./src/assets/scss/mixins";
+
+.deviceABC1 {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-bottom: 24px;
+
+    .tableBody {
+       @include tableBodyStyle;
+       background: $color-purple-second;
+
+       .tableTitle {
+            background: $color-purple;
+       }
+
+       .wrapperButton {
+            display: flex;
+            justify-content: center;
+            justify-content: baseline;
+
+            .hideSelect {
+                // visibility: hidden;
+                display: none;
+            }
+       }
+    }
+}
+
+@media only screen and (max-width: $small-screen) {
+    .deviceABC1 {
+        width: 100%;
+    }
+}

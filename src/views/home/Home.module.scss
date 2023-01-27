@@ -1,0 +1,46 @@
+@import "./src/assets/scss/colors";
+@import "./src/assets/scss/mixins";
+
+.wrapperDevices {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5%;
+
+    .wrapperFirstSection {
+        width: 50%;
+        margin-right: 32px;
+    }
+
+    .wrapperSecondSection {
+        width: 50%;
+    }
+}
+
+.horizontalLine {
+    background: $color-grey;
+    height: 3px;
+    margin: 5% 0px;
+}
+
+.wrapperJobsAndCables {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width: $small-screen) {
+    .wrapperDevices, .wrapperJobsAndCables {
+        flex-direction: column;
+        align-items: center;
+       
+
+        .wrapperFirstSection {
+            width: 100%;
+            margin: 0px;
+        }
+
+        .wrapperSecondSection {
+            width: 100%;
+            margin-top: 42px;
+        }
+    }
+}
