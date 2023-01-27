@@ -1,10 +1,10 @@
-@import "./src/assets/scss/colors";
+@import "./src/assets/scss/variables";
 @import "./src/assets/scss/mixins";
 
 .connectedCables {
     width: 40%;
-    overflow-x: auto;
-    white-space: nowrap;
+    // overflow-x: auto;
+    // white-space: nowrap;
     margin-left: 24px;
 
     .tableBody {
@@ -21,13 +21,13 @@
 @media only screen and (max-width: $small-screen) {
     .connectedCables {
         width: 50%;
-        margin: 24px 0px 0px 0px;
+        margin: 36px 0px 36px 0px;
     }
 }
 
 @media only screen and (max-width: 1000px) {
     .connectedCables {
-        width: 100%;
-        margin: 24px 0px 0px 0px;
+        width: 600px;
+        // margin: 36px 0px 36px 0px;
     }
 }

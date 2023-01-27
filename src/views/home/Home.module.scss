@@ -1,4 +1,4 @@
-@import "./src/assets/scss/colors";
+@import "./src/assets/scss/variables";
 @import "./src/assets/scss/mixins";
 
 .wrapperDevices {
@@ -32,7 +32,6 @@
         flex-direction: column;
         align-items: center;
        
-
         .wrapperFirstSection {
             width: 100%;
             margin: 0px;
@@ -40,7 +39,7 @@
 
         .wrapperSecondSection {
             width: 100%;
-            margin-top: 42px;
+            margin-top: 36px;
         }
     }
 }

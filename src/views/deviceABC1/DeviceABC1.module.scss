@@ -1,11 +1,8 @@
-@import "./src/assets/scss/colors";
+@import "./src/assets/scss/variables";
 @import "./src/assets/scss/mixins";
 
 .deviceABC1 {
     width: 100%;
-    overflow-x: auto;
-    white-space: nowrap;
-    margin-bottom: 24px;
 
     .tableBody {
        @include tableBodyStyle;
@@ -21,15 +18,15 @@
             justify-content: baseline;
 
             .hideSelect {
-                // visibility: hidden;
                 display: none;
             }
        }
     }
 }
 
-@media only screen and (max-width: $small-screen) {
+@media only screen and (max-width: 700px) {
     .deviceABC1 {
-        width: 100%;
+        width: 600px;
+        margin: auto;
     }
 }

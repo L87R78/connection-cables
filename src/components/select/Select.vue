@@ -1,15 +1,18 @@
 <template>
-    <select class="select" @click="$emit('handleSelectAvailableDevice', $event)">
+    <select 
+        v-if="storeDevices.availableDevicesData.some(device => device.deviceName !== props.item.deviceName)" 
+        class="select" 
+        @click="$emit('handleSelectAvailableDevice', $event)">
         <option value="">Devices</option>
         <option 
-            v-for="device in storeDevices.availableDevicesData.filter(item => item.deviceName !== props.item.deviceName )"
+            v-for="device in storeDevices.availableDevicesData.filter(device => device.deviceName !== props.item.deviceName)"
             :key="device.id" 
             :value='device.id'
         >
             {{ `${device.deviceName} - ${device.portName}` }}
         </option>
     </select>
-    <!-- <p v-if="storeDevices.availableDevicesData.length === 0">No device available</p> -->
+    <span v-else class="noAvailableDevicesText">No available devices</span>
 </template>
   
 <script setup>

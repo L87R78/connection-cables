@@ -62,5 +62,29 @@
         "connectedTo": null,
         "cable": null,
         "action": "Connect"
+    },
+    {
+        "id": 9,
+        "deviceName": "XYZ9",
+        "portName": "P5",
+        "connectedTo": null,
+        "cable": null,
+        "action": "Connect"
+    },
+    {
+        "id": 10,
+        "deviceName": "XYZ9",
+        "portName": "P6",
+        "connectedTo": null,
+        "cable": null,
+        "action": "Connect"
+    },
+    {
+        "id": 11,
+        "deviceName": "XYZ9",
+        "portName": "P7",
+        "connectedTo": null,
+        "cable": null,
+        "action": "Connect"
     }
 ]

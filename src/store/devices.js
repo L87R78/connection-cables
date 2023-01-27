@@ -1,16 +1,6 @@
 import { defineStore } from 'pinia';
 
 import devicesData from '../mockData/devices.json';
-const availableDevicesData = [ 
-  { id: 1, deviceName: 'ABC1', portName: 'P1' },
-  { id: 2, deviceName: 'ABC1', portName: 'P2' },
-  { id: 3, deviceName: 'MNL5', portName: 'P1' },
-  { id: 4, deviceName: 'MNL5', portName: 'P2' },
-  { id: 5, deviceName: 'XYZ9', portName: 'P1' },
-  { id: 6, deviceName: 'XYZ9', portName: 'P2' },
-  { id: 7, deviceName: 'XYZ9', portName: 'P3' },
-  { id: 8, deviceName: 'XYZ9', portName: 'P4' },
-]
 
 export const devices = defineStore({
   id: 'devices',
@@ -18,15 +8,12 @@ export const devices = defineStore({
     devicesData,
     jobs: [],
     connectedCables: [],
-    availableDevicesData
+    availableDevicesData: devicesData
   }),
   actions: {
     connectDevice(selectedDeviceId, device) {
-      // console.log('@@@ selectedDeviceId ', selectedDeviceId);
-      // console.log('@@@ device ', device);
       this.availableDevicesData = this.availableDevicesData.filter(item => (item.id !== selectedDeviceId && item.id !== device.id));
 
-      // Remove device from 
       const selectedDevice = this.devicesData.find(item => item.id === selectedDeviceId);
 
       const updatedDevices = this.devicesData.reduce((acc, current) => {
@@ -70,11 +57,8 @@ export const devices = defineStore({
 
       const currentDevice = { ...device };
 
-      // Remove device from 
-      // const selectedDevice = this.devicesData.find(item => item.id === selectedDeviceId);
-      // console.log('@@@@@ currentDevice ', currentDevice);
       const updateDevicesJobs = this.jobs.reduce((acc, current) => {
-        // debugger;
+
         if(`${current.from}-${current.to}` === currentDevice.cable) {
           const tempDevice = current;
           tempDevice.status = "Pending";
@@ -114,8 +98,6 @@ export const devices = defineStore({
       return this.devicesData = updatedDevices;
     },
     completeDevice(device) {
-      console.log('@@@@ completeDevice device ', device);
-      // debugger;
       this.jobs = this.jobs.reduce((acc, current) => {
 
         if (current.from === device.from && current.to === device.to && device.action === 'Disconnect') {
@@ -158,6 +140,8 @@ export const devices = defineStore({
             tempDevice.action = 'Connect';
           }
 
+          this.availableDevicesData = [ ...this.availableDevicesData, current ]
+
           return [ ...acc, tempDevice];
         }
 
@@ -176,10 +160,5 @@ export const devices = defineStore({
         return this.connectedCables = [ ...this.connectedCables, tempDataToCable];
       }
     }
-
-    // removeSelectDeviceData(selectDeviceId) {
-    //   console.log('@@@@ selectDeviceId ', selectDeviceId);
-    //   // this.availableDevicesData = this.availableDevicesData.filter(item => item.id !== selectDeviceId);
-    // }
   }
 })

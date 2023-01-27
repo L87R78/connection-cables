@@ -1,10 +1,10 @@
-@import "./src/assets/scss/colors";
+@import "./src/assets/scss/variables";
 @import "./src/assets/scss/mixins";
 
 .deviceMNL5 {
     width: 100%;
-    overflow-x: auto;
-    white-space: nowrap;
+    // overflow-x: auto;
+    // white-space: nowrap;
 
     .tableBody {
        @include tableBodyStyle;
@@ -34,8 +34,9 @@
     }
 }
 
-@media only screen and (max-width: $small-screen) {
+@media only screen and (max-width: 700px) {
     .deviceMNL5 {
-        width: 100%;
+        width: 600px;
+        margin: auto;
     }
 }

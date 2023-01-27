@@ -1,4 +1,4 @@
-@import "./src/assets/scss/colors";
+@import "./src/assets/scss/variables";
 @import "./src/assets/scss/mixins";
 
 .select {
@@ -10,4 +10,12 @@
 select option {
   color: $color-black;
   font-size: 16px;
+}
+
+select:focus{
+  outline: none;
+}
+
+.noAvailableDevicesText {
+  color: $color-red-second;
 }

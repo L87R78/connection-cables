@@ -4,13 +4,8 @@
 
 <style>
 
-#app {
-  margin: 0px 16px;
-}
+/* body {
+  margin: 0px;
+} */
 
-@media only screen and (max-width: 700px) {
-  #app {
-    margin: 0px;
-  }
-}
 </style>
