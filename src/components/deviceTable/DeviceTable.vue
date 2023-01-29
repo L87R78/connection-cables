@@ -4,7 +4,7 @@
       <caption class="tableTitle">{{ deviceName }}</caption>
       <thead>
         <tr>
-          <th class="headerText" v-for="item in headars" :key="item">{{ item }}</th>
+          <th class="headerText" v-for="item in labels.headerlabels()" :key="item">{{ item }}</th>
         </tr>
       </thead>
       <tbody>
@@ -12,7 +12,7 @@
           <td class="bodyText">{{ device.portName }}</td>
           <td class="bodyText">{{ device.connectedTo || "" }}</td>
           <td class="bodyText">{{ device.connectedTo ? device.cable : "" }}</td>
-          <div v-if="device.action !== 'Reserved'" class="wrapperButton">
+          <div v-if="device.action !== tableLabels.reserved" class="wrapperButton">
             <Button 
               :item=device
               @click="handleDisconnetDevice(device)"
@@ -24,7 +24,7 @@
               :class="device.connectedTo && 'hideSelect'"
             />
           </div>
-          <td v-if="device.action === 'Reserved'">{{ device.action }}</td>
+          <td v-if="device.action === tableLabels.reserved">{{ device.action }}</td>
         </tr>
       </tbody>
     </table>
@@ -36,6 +36,8 @@ import { ref } from 'vue';
 import { devices } from '../../store/devices'
 import Button from '../../components/button/Button.vue'
 import Select from '../../components/select/Select.vue'
+import Labels from '../../modules/Labels';
+import { tableLabels } from '../../locales/labels';
 
 const props = defineProps({
     deviceName: String,
@@ -47,7 +49,7 @@ const { deviceName, deviceData } = props;
 const selectedDeviceState = ref("");
 const storeDevices = devices();
 
-const headars = ['Port Name', 'Connected to', 'Cable', 'Action'];
+const labels = new Labels(tableLabels.device);
 
 const handleDisconnetDevice = (deviceRow) => {
   storeDevices.disconnectDevice(deviceRow);

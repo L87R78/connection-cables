@@ -2,8 +2,7 @@
 @import "./src/assets/scss/mixins";
 
 .connectedCables {
-    width: 60%;
-    margin-left: 24px;
+    width: 38%;
 
     .tableBody {
        @include tableBodyStyle;
@@ -16,16 +15,16 @@
     }
 }
 
-@media only screen and (max-width: $small-screen) {
+@media only screen and (max-width: $large-tablet-screen) {
     .connectedCables {
         flex-direction: column;
         width: 80%;
-        margin: $base-padding auto;
+        margin: 36px auto;
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: $mobile-screen) {
     .connectedCables {
-        width: 600px;
+        width: $mobile-screen;
     }
 }

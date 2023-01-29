@@ -1,13 +1,10 @@
 <template>
-  <button
-    :class="handleStatusButton(item.action)"
-    >
-    {{ item.action }}
-  </button>
+  <button :class="handleStatusButton(item.action)">{{ item.action }}</button>
 </template>
   
 <script setup>
-import { defineProps } from 'vue'
+import { defineProps } from 'vue';
+import { buttons } from '../../locales/labels';
 
 defineProps({
   item: {
@@ -16,9 +13,9 @@ defineProps({
 })
 
 const handleStatusButton = (actionItem) => {
-  if(actionItem === 'Complete') {
+  if(actionItem === buttons.complete) {
     return 'showCompleteButton';
-  } else if (actionItem === 'Disconnect') {
+  } else if (actionItem === buttons.disconnect) {
     return 'showDisconnetButton';
   }
 

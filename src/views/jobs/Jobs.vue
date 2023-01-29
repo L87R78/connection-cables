@@ -1,10 +1,10 @@
 <template>
-  <div class="jobs">
+  <div v-if="storeDevices.jobs.length > 0" class="jobs">
     <table class="tableBody">
-      <caption class="tableTitle">{{ 'JOBS' }}</caption>
+      <caption class="tableTitle">{{ tableLabels.jobs }}</caption>
       <thead>
         <tr>
-          <th class="headerText" v-for="item in headars" :key="item">{{ item }}</th>
+          <th class="headerText" v-for="item in labels.headerlabels()" :key="item">{{ item }}</th>
         </tr>
       </thead>
       <tbody>
@@ -13,9 +13,9 @@
           <td class="bodyText">{{ device.from }}</td>
           <td class="bodyText">{{ device.to }}</td>
           <td class="bodyText" 
-            :class="(device.status === 'Pending') ? 'statusPending' : 'statusCompleted'" >{{ device.status }}
+            :class="(device.status === tableLabels.pending) ? 'statusPending' : 'statusCompleted'" >{{ device.status }}
           </td>
-          <div v-if="device.status === 'Pending'">
+          <div v-if="device.status === tableLabels.pending">
             <Button 
               :item=device
               @click="handleBtn(device)"
@@ -30,10 +30,12 @@
 <script setup>
 import { devices } from '../../store/devices'
 import Button from '../../components/button/Button.vue'
+import Labels from '../../modules/Labels';
+import { tableLabels } from '../../locales/labels';
 
 const storeDevices = devices()
 
-const headars = ['Type', 'From', 'To', 'Status', 'Action']
+const labels = new Labels(tableLabels.jobs);
 
 const handleBtn = (device) => {
   storeDevices.completeDevice(device)

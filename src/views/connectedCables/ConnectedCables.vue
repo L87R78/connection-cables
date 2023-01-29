@@ -1,10 +1,10 @@
 <template>
-  <div class="connectedCables">
+  <div v-if="storeDevices.connectedCables.length > 0" class="connectedCables">
     <table class="tableBody">
-      <caption class="tableTitle">{{ 'Connected Cables' }}</caption>
+      <caption class="tableTitle">{{ tableLabels.connectedCables }}</caption>
       <thead>
         <tr>
-          <th class="headerText" v-for="item in headars" :key="item">{{ item }}</th>
+          <th class="headerText" v-for="item in labels.headerlabels()" :key="item">{{ item }}</th>
         </tr>
       </thead>
       <tbody>
@@ -20,13 +20,15 @@
    
 <script setup>
 import { devices } from '../../store/devices'
+import Labels from '../../modules/Labels';
+import { tableLabels } from '../../locales/labels';
 
 const storeDevices = devices()
 
-const headars = ['Name', 'From', 'To']
-  
+const labels = new Labels(tableLabels.connectedCables);
+
 </script>
 
 <style lang="scss">
-@import '@/views/connectedCables/ConnectedCables.module.scss';
+@import './ConnectedCables.module.scss';
 </style>

@@ -1,8 +1,8 @@
 <template>
   <div class="deviceXYZ9">
     <DeviceTable 
-    :deviceName="`Device ${device.deviceName}`"
-    :deviceData="storeDevices.devicesData.filter(device => device.deviceName === 'XYZ9')"
+    :deviceName="`${tableLabels.device} ${device.deviceName}`"
+    :deviceData="storeDevices.devicesData.filter(device => device.deviceName === deviceNames.XYZ9)"
     />
   </div>
 </template>
@@ -10,10 +10,11 @@
 <script setup>
 import { devices } from '../../store/devices';
 import DeviceTable from '../../components/deviceTable/DeviceTable.vue';
+import { tableLabels, deviceNames } from '../../locales/labels';
 
 const storeDevices = devices();
 
-const device = storeDevices.devicesData.find(device => device.deviceName === 'XYZ9');
+const device = storeDevices.devicesData.find(device => device.deviceName === deviceNames.XYZ9);
 
 </script>
 
