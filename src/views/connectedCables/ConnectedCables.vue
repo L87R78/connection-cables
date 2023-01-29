@@ -19,11 +19,11 @@
 </template>
    
 <script setup>
-import { devices } from '../../store/devices'
+import { devices } from '../../store/devices';
 import Labels from '../../modules/Labels';
 import { tableLabels } from '../../locales/labels';
 
-const storeDevices = devices()
+const storeDevices = devices();
 
 const labels = new Labels(tableLabels.connectedCables);
 

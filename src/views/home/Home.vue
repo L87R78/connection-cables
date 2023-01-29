@@ -16,11 +16,11 @@
 </template>
   
 <script setup>
-import DeviceABC1 from '../devices/DeviceABC1.vue'
-import DeviceMNL5 from '../devices/DeviceMNL5.vue'
-import DeviceXYZ9 from '../devices/DeviceXYZ9.vue'
-import Jobs from '../jobs/Jobs.vue'
-import ConnectedCables from '../connectedCables/ConnectedCables.vue'
+import DeviceABC1 from '../devices/DeviceABC1.vue';
+import DeviceMNL5 from '../devices/DeviceMNL5.vue';
+import DeviceXYZ9 from '../devices/DeviceXYZ9.vue';
+import Jobs from '../jobs/Jobs.vue';
+import ConnectedCables from '../connectedCables/ConnectedCables.vue';
 </script>
 
 <style lang="scss">

@@ -34,7 +34,6 @@ export const devices = defineStore({
           this.jobs = [ ...this.jobs, tempDeviceToJobs ];
 
           const tempDevice = current;
-          // tempDevice.connectedTo = selectedDevice.deviceName + "-" + selectedDevice.portName;
           tempDevice.cable = `${current.deviceName}-${current.portName}-${selectedDevice.deviceName}-${selectedDevice.portName}`;
           tempDevice.action = tableLabels.reserved;
 
@@ -42,7 +41,6 @@ export const devices = defineStore({
         } else if (current.id === selectedDeviceId){
 
           const tempDevice = selectedDevice;
-          // tempDevice.connectedTo = device.deviceName + "-" + device.portName;
           tempDevice.cable = `${device.deviceName}-${device.portName}-${current.deviceName}-${current.portName}`;
           tempDevice.action = tableLabels.reserved;
 
@@ -78,7 +76,6 @@ export const devices = defineStore({
 
         if(current.connectedTo === currentDevice.connectedTo) {
           const tempDevice = current;
-          // tempDevice.cable = null;
           tempDevice.connectedTo = null;
           tempDevice.action = tableLabels.reserved;
 
@@ -86,7 +83,6 @@ export const devices = defineStore({
 
         } else if (current.connectedTo === `${currentDevice.deviceName}-${currentDevice.portName}`){
           const tempDevice = current;
-          // tempDevice.cable = null;
           tempDevice.connectedTo = null;
           tempDevice.action = tableLabels.reserved;
 
@@ -119,29 +115,18 @@ export const devices = defineStore({
         if ((current.cable === `${device.from}-${device.to}`) && device.action !== buttons.disconnect) {  
   
           const tempDevice = current;
-          if(`${current.deviceName}-${current.portName}` === device.to) {
-            tempDevice.connectedTo = device.from;
-            tempDevice.action = buttons.disconnect;
-          } else {
-            tempDevice.connectedTo = device.to;
-            tempDevice.action = buttons.disconnect;
-          }
-
+          tempDevice.connectedTo = `${current.deviceName}-${current.portName}` === device.to ? device.from : device.to;
+          tempDevice.action = buttons.disconnect;
+          
           return [ ...acc, tempDevice];
 
         } else if ((current.cable === `${device.from}-${device.to}`) && device.action === buttons.disconnect) {  
 
           const tempDevice = current;
-          if(`${current.deviceName}-${current.portName}` === device.to) {
-            tempDevice.connectedTo =  null;
-            tempDevice.cable =  null;
-            tempDevice.action = 'Connect';
-          } else {
-            tempDevice.connectedTo =  null;
-            tempDevice.cable =  null;
-            tempDevice.action = 'Connect';
-          }
-
+          tempDevice.connectedTo =  null;
+          tempDevice.cable =  null;
+          tempDevice.action = 'Connect';
+          
           this.availableDevicesData = [ ...this.availableDevicesData, current ]
 
           return [ ...acc, tempDevice];
@@ -163,4 +148,4 @@ export const devices = defineStore({
       }
     }
   }
-})
+});

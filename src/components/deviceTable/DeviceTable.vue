@@ -33,9 +33,9 @@
    
 <script setup>
 import { ref } from 'vue';
-import { devices } from '../../store/devices'
-import Button from '../../components/button/Button.vue'
-import Select from '../../components/select/Select.vue'
+import { devices } from '../../store/devices';
+import Button from '../../components/button/Button.vue';
+import Select from '../../components/select/Select.vue';
 import Labels from '../../modules/Labels';
 import { tableLabels } from '../../locales/labels';
 

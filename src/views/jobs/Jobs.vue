@@ -28,18 +28,19 @@
 </template>
    
 <script setup>
-import { devices } from '../../store/devices'
-import Button from '../../components/button/Button.vue'
+import { devices } from '../../store/devices';
+import Button from '../../components/button/Button.vue';
 import Labels from '../../modules/Labels';
 import { tableLabels } from '../../locales/labels';
 
-const storeDevices = devices()
+const storeDevices = devices();
 
 const labels = new Labels(tableLabels.jobs);
 
 const handleBtn = (device) => {
-  storeDevices.completeDevice(device)
+  storeDevices.completeDevice(device);
 }
+
 </script>
 
 <style lang="scss">
