@@ -25,4 +25,5 @@ select:focus{
 
 .noAvailableDevicesText {
   color: $color-red-second;
+  pointer-events: none;
 }

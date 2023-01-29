@@ -9,11 +9,14 @@ const tableLabels = {
     type: 'Type',
     status: 'Status',
     device: 'Device',
+    devices: 'Devices',
     jobs: 'Jobs',
     connectedCables: 'Connected Cables',
     pending: 'Pending',
     reserved: 'Reserved',
-    completed: 'Completed'
+    completed: 'Completed',
+    connect: 'Connect',
+    noAvailableDevices: 'No available devices'
 }
 
 const buttons = {

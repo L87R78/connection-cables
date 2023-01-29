@@ -5,7 +5,7 @@ class Labels {
         this.value = value;
     }
 
-    headerlabels() {
+    getHeaderLabels() {
 
         switch(this.value) {
             case tableLabels.connectedCables:

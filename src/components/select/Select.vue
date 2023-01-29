@@ -4,7 +4,7 @@
         :class="storeDevices.availableDevicesData.some(device => device.deviceName !== props.item.deviceName) ? 'showSelect' : 'hideSelect'"
         class="select" 
         @click="$emit('handleSelectAvailableDevice', $event)">
-        <option value="">Devices</option>
+        <option value="">{{ tableLabels.devices }}</option>
         <option 
             v-for="device in storeDevices.availableDevicesData
             .filter(device =>  device.deviceName !== props.item.deviceName)
@@ -15,15 +15,16 @@
             {{ `${device.deviceName} - ${device.portName}` }}
         </option>
     </select>
-    <span v-else class="noAvailableDevicesText">No available devices</span>
+    <span v-else class="noAvailableDevicesText">{{ tableLabels.noAvailableDevices }}</span>
 </template>
   
 <script setup>
 import { defineProps } from 'vue';
 import { devices } from '../../store/devices';
+import { tableLabels } from '../../locales/labels';
 
 const props = defineProps({
-  item: {},
+  item: Object,
 })
 
 const storeDevices = devices();

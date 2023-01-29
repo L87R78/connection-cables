@@ -4,7 +4,7 @@
       <caption class="tableTitle">{{ tableLabels.connectedCables }}</caption>
       <thead>
         <tr>
-          <th class="headerText" v-for="item in labels.headerlabels()" :key="item">{{ item }}</th>
+          <th class="headerText" v-for="item in labels.getHeaderLabels()" :key="item">{{ item }}</th>
         </tr>
       </thead>
       <tbody>

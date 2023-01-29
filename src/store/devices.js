@@ -25,7 +25,7 @@ export const devices = defineStore({
         if(current.id === device.id) {
 
           const tempDeviceToJobs = {
-            type: 'Connect',
+            type: tableLabels.connect,
             from: `${current.deviceName}-${current.portName}`,
             to: `${selectedDevice.deviceName}-${selectedDevice.portName}`,
             status: tableLabels.pending,
@@ -99,12 +99,12 @@ export const devices = defineStore({
       this.jobs = this.jobs.reduce((acc, current) => {
 
         if (current.from === device.from && current.to === device.to && device.action === buttons.disconnect) {
-          return [ ...acc]
+          return [ ...acc];
         } if (current.from === device.from && current.to === device.to) {
           const tempDeviceToJobs = current;
           tempDeviceToJobs.status = tableLabels.completed;
 
-          return [ ...acc, tempDeviceToJobs]
+          return [ ...acc, tempDeviceToJobs];
         }
 
         return [ ...acc, current ];
@@ -125,7 +125,7 @@ export const devices = defineStore({
           const tempDevice = current;
           tempDevice.connectedTo =  null;
           tempDevice.cable =  null;
-          tempDevice.action = 'Connect';
+          tempDevice.action = tableLabels.connect;
           
           this.availableDevicesData = [ ...this.availableDevicesData, current ]
 
@@ -141,11 +141,9 @@ export const devices = defineStore({
         to: device.to
       }
 
-      if(device.action === buttons.disconnect) {
-        return this.connectedCables = this.connectedCables.filter(cable => cable.name !== `${device.from}-${device.to}`);
-      } else {
-        return this.connectedCables = [ ...this.connectedCables, tempDataToCable];
-      }
+      return device.action === buttons.disconnect
+        ? this.connectedCables = this.connectedCables.filter(cable => cable.name !== `${device.from}-${device.to}`)
+        : this.connectedCables = [ ...this.connectedCables, tempDataToCable];
     }
   }
 });
