@@ -3,6 +3,7 @@
     <DeviceTable 
     :deviceName="`${tableLabels.device} ${device.deviceName}`"
     :deviceData="devicesData.storeData().filter(device => device.deviceName === deviceNames.ABC1)"
+    :headerLabels="devicesData.headerLabels()"
     />
   </div>
 </template>
