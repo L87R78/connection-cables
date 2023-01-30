@@ -2,7 +2,6 @@
     <select 
         v-if="storeDevices.availableDevicesData.some(device => device.deviceName !== props.item.deviceName)"
         :class="storeDevices.availableDevicesData.some(device => device.deviceName !== props.item.deviceName) ? 'showSelect' : 'hideSelect'"
-        class="select" 
         @click="$emit('handleSelectAvailableDevice', $event)">
         <option value="">{{ tableLabels.devices }}</option>
         <option 

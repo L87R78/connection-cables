@@ -1,26 +1,19 @@
 @import "./src/assets/scss/variables";
 @import "./src/assets/scss/mixins";
 
-.select {
-  @include buttonStyle;
-  background: $color-green;
-  text-align: center;
-}
-
 .hideSelect {
   display: none;
 }
+
 .showSelect {
   display: inline;
-}
+  @include buttonStyle;
+  background: $color-green;
+  text-align: center;
 
-select option {
-  color: $color-black;
-  font-size: 16px;
-}
-
-select:focus{
-  outline: none;
+  &:focus{
+    outline: none;
+  }
 }
 
 .noAvailableDevicesText {
