@@ -1,27 +1,27 @@
 import { defineStore } from 'pinia';
 import { tableLabels, buttons } from '../locales/labels';
 
-import devicesData from '../mockData/devices.json';
+import devices from '../mockData/devices.json';
 
-export const devices = defineStore({
+export const devicesStore = defineStore({
   id: 'devices',
   state: () => ({
-    devicesData,
+    devices,
     jobs: [],
     connectedCables: [],
-    availableDevicesData: devicesData
+    availableDevicesData: devices
   }),
   actions: {
     connectDevice(selectedDeviceId, device) {
       this.availableDevicesData = this.availableDevicesData.filter(item => (item.id !== selectedDeviceId && item.id !== device.id));
 
-      const selectedDevice = this.devicesData.find(item => item.id === selectedDeviceId);
+      const selectedDevice = this.devices.find(item => item.id === selectedDeviceId);
 
       if(!selectedDevice) {
         return;
       }
 
-      const updatedDevices = this.devicesData.reduce((acc, current) => {
+      const updatedDevices = this.devices.reduce((acc, current) => {
         if(current.id === device.id) {
 
           const tempDeviceToJobs = {
@@ -51,7 +51,7 @@ export const devices = defineStore({
 
       }, []);
       
-      return this.devicesData = updatedDevices;
+      return this.devices = updatedDevices;
     },
     disconnectDevice(device) {
 
@@ -72,7 +72,7 @@ export const devices = defineStore({
 
       this.jobs = updateDevicesJobs;
 
-      const updatedDevices = this.devicesData.reduce((acc, current) => {
+      const updatedDevices = this.devices.reduce((acc, current) => {
 
         if(current.connectedTo === currentDevice.connectedTo) {
           const tempDevice = current;
@@ -93,7 +93,7 @@ export const devices = defineStore({
 
       }, []);
 
-      return this.devicesData = updatedDevices;
+      return this.devices = updatedDevices;
     },
     completeDevice(device) {
       this.jobs = this.jobs.reduce((acc, current) => {
@@ -110,7 +110,7 @@ export const devices = defineStore({
         return [ ...acc, current ];
       }, []);
 
-      this.devicesData = this.devicesData.reduce((acc, current) => {
+      this.devices = this.devices.reduce((acc, current) => {
 
         if ((current.cable === `${device.from}-${device.to}`) && device.action !== buttons.disconnect) {  
   

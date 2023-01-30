@@ -1,11 +1,27 @@
 import { tableLabels } from '../locales/labels';
+import { devicesStore } from '../store/devices';
 
-class Labels {
+class Devices {
     constructor(value) {
         this.value = value;
     }
 
-    getHeaderLabels() {
+    storeData() {
+
+        const storeData = devicesStore();
+
+        switch(this.value) {
+            case tableLabels.connectedCables:
+                return storeData.connectedCables;
+            case tableLabels.jobs:
+                return storeData.jobs;
+            case tableLabels.device:
+                return storeData.devices;
+            default: return [];
+        }
+    }
+
+    headerLabels() {
 
         switch(this.value) {
             case tableLabels.connectedCables:
@@ -19,4 +35,4 @@ class Labels {
     }
 }
 
-export default Labels;
+export default Devices;

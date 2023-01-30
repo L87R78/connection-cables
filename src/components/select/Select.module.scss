@@ -10,6 +10,8 @@
   @include buttonStyle;
   background: $color-green;
   text-align: center;
+  appearance: none;
+  font-size: 16px;
 
   &:focus{
     outline: none;

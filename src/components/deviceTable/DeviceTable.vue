@@ -4,7 +4,7 @@
       <caption class="tableTitle">{{ deviceName }}</caption>
       <thead>
         <tr>
-          <th class="headerText" v-for="item in labels.getHeaderLabels()" :key="item">{{ item }}</th>
+          <th class="headerText" v-for="item in devicesData.headerLabels()" :key="item">{{ item }}</th>
         </tr>
       </thead>
       <tbody>
@@ -33,10 +33,10 @@
    
 <script setup>
 import { ref } from 'vue';
-import { devices } from '../../store/devices';
+import { devicesStore } from '../../store/devices';
 import Button from '../../components/button/Button.vue';
 import Select from '../../components/select/Select.vue';
-import Labels from '../../modules/Labels';
+import Devices from '../../modules/Devices';
 import { tableLabels } from '../../locales/labels';
 
 const props = defineProps({
@@ -47,9 +47,9 @@ const props = defineProps({
 const { deviceName, deviceData } = props;
 
 const selectedDeviceState = ref("");
-const storeDevices = devices();
+const storeDevices = devicesStore();
 
-const labels = new Labels(tableLabels.device);
+const devicesData = new Devices(tableLabels.device);
 
 const handleDisconnetDevice = (deviceRow) => {
   storeDevices.disconnectDevice(deviceRow);

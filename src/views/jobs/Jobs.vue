@@ -1,14 +1,14 @@
 <template>
-  <div v-if="storeDevices.jobs.length > 0" class="jobs">
+  <div v-if="jobsData.storeData().length > 0" class="jobs">
     <table class="tableBody">
       <caption class="tableTitle">{{ tableLabels.jobs }}</caption>
       <thead>
         <tr>
-          <th class="headerText" v-for="item in labels.getHeaderLabels()" :key="item">{{ item }}</th>
+          <th class="headerText" v-for="item in jobsData.headerLabels()" :key="item">{{ item }}</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="device in storeDevices.jobs" :key="device.id">
+        <tr v-for="device in jobsData.storeData()" :key="device.id">
           <td class="bodyText">{{ device.type }}</td>
           <td class="bodyText">{{ device.from }}</td>
           <td class="bodyText">{{ device.to }}</td>
@@ -28,14 +28,13 @@
 </template>
    
 <script setup>
-import { devices } from '../../store/devices';
+import { devicesStore } from '../../store/devices';
 import Button from '../../components/button/Button.vue';
-import Labels from '../../modules/Labels';
+import Devices from '../../modules/Devices';
 import { tableLabels } from '../../locales/labels';
 
-const storeDevices = devices();
-
-const labels = new Labels(tableLabels.jobs);
+const storeDevices = devicesStore();
+const jobsData = new Devices(tableLabels.jobs);
 
 const handleBtn = (device) => {
   storeDevices.completeDevice(device);

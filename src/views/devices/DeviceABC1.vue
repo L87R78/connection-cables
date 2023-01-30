@@ -2,19 +2,19 @@
   <div class="deviceABC1">
     <DeviceTable 
     :deviceName="`${tableLabels.device} ${device.deviceName}`"
-    :deviceData="storeDevices.devicesData.filter(device => device.deviceName === deviceNames.ABC1)"
+    :deviceData="devicesData.storeData().filter(device => device.deviceName === deviceNames.ABC1)"
     />
   </div>
 </template>
  
 <script setup>
-import { devices } from '../../store/devices';
 import DeviceTable from '../../components/deviceTable/DeviceTable.vue';
 import { tableLabels, deviceNames } from '../../locales/labels';
+import Devices from '../../modules/Devices';
 
-const storeDevices = devices();
+const devicesData = new Devices(tableLabels.device);
 
-const device = storeDevices.devicesData.find(device => device.deviceName === deviceNames.ABC1);
+const device = devicesData.storeData().find(device => device.deviceName === deviceNames.ABC1);
 
 </script>
 

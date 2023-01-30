@@ -4,7 +4,7 @@
         :class="storeDevices.availableDevicesData.some(device => device.deviceName !== props.item.deviceName) ? 'showSelect' : 'hideSelect'"
         @click="$emit('handleSelectAvailableDevice', $event)">
         <option value="">{{ tableLabels.devices }}</option>
-        <option 
+        <option
             v-for="device in storeDevices.availableDevicesData
             .filter(device =>  device.deviceName !== props.item.deviceName)
             .sort((a, b) => a.id - b.id)"
@@ -19,14 +19,14 @@
   
 <script setup>
 import { defineProps } from 'vue';
-import { devices } from '../../store/devices';
+import { devicesStore } from '../../store/devices';
 import { tableLabels } from '../../locales/labels';
 
 const props = defineProps({
   item: Object,
 })
 
-const storeDevices = devices();
+const storeDevices = devicesStore();
 
 </script>
   
