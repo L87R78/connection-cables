@@ -31,5 +31,5 @@ const storeDevices = devicesStore();
 </script>
   
 <style lang="scss">
-@import '@/components/select/Select.module.scss';
+@import './Select.module.scss';
 </style>

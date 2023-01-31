@@ -6,7 +6,7 @@
     background: $color-green;
 }
 
-.showDisconnetButton {
+.showDisconnectButton {
     @include buttonStyle;
     background: $color-red;
 }

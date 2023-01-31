@@ -16,10 +16,7 @@
             :class="(device.status === tableLabels.pending) ? 'statusPending' : 'statusCompleted'" >{{ device.status }}
           </td>
           <div v-if="device.status === tableLabels.pending">
-            <Button 
-              :item=device
-              @click="handleBtn(device)"
-              />
+            <Button :item=device @click="handleBtn(device)" />
           </div>
         </tr>
       </tbody>

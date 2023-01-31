@@ -15,7 +15,7 @@
           <div v-if="device.action !== tableLabels.reserved" class="wrapperButton">
             <Button 
               :item=device
-              @click="handleDisconnetDevice(device)"
+              @click="handleDisconnectDevice(device)"
               />
             <Select 
               :item=device
@@ -49,7 +49,7 @@ const { deviceName, deviceData } = props;
 const selectedDeviceState = ref("");
 const storeDevices = devicesStore();
 
-const handleDisconnetDevice = (deviceRow) => {
+const handleDisconnectDevice = (deviceRow) => {
   storeDevices.disconnectDevice(deviceRow);
 }
 
@@ -64,6 +64,6 @@ const handleSelectAvailableDevice = (event) => {
 </script>
 
 <style lang="scss">
-@import '../../components/deviceTable/DeviceTable.module.scss';
+@import './DeviceTable.module.scss';
 </style>
    

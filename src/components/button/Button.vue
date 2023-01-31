@@ -16,7 +16,7 @@ const handleStatusButton = (actionItem) => {
   if(actionItem === buttons.complete) {
     return 'showCompleteButton';
   } else if (actionItem === buttons.disconnect) {
-    return 'showDisconnetButton';
+    return 'showDisconnectButton';
   }
 
   return 'hideButton';
@@ -25,6 +25,6 @@ const handleStatusButton = (actionItem) => {
 </script>
   
 <style lang="scss">
-@import '@/components/button/Button.module.scss';
+@import './Button.module.scss';
 </style>
   
