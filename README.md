@@ -1,24 +1,18 @@
-# interview-task
+## By Lyubomir Atanasov
+A simple JavaScript project regarding devices and cables.
 
-## Project setup
-```
-npm install
-```
+## Technologies Used:
+    - JavaScript
+    - HTML
+    - CSS / SASS
+    - Vue.js
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Description
+This browser application allows users to create different conection cables with different devices. Simply choice device in dropDown field, then add connection between them.
 
-### Compiles and minifies for production
-```
-npm run build
-```
+### Setup/Installation Requirements
+    01. clone this repository to your desktop.
+    02. npm install
+    03. npm run serve
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Link -> https://l87r78.github.io/task-interview
