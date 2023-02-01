@@ -15,4 +15,4 @@ This browser application allows users to create different conection cables with 
     02. npm install
     03. npm run serve
 
-### Link -> https://l87r78.github.io/task-interview
+### Link -> https://l87r78.github.io/connection-cables/#/
