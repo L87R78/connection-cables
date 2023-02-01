@@ -13,28 +13,13 @@
             color: $color-black;
         }
 
-        .connectButton {
-            @include buttonStyle;
-            background: $color-green;
-        }
-
-        .disconnectButton {
-            @include buttonStyle;
-            background: $color-red;
-        }
-
-       .statusPending {
+        .statusPending {
             background: $color-danger;
-       }
+        }
 
-       .statusCompleted {
+        .statusCompleted {
             background: $color-green-second;
-       }
-
-       .wrapperButton {
-            display: flex;
-            justify-content: center;
-       }
+        }
     }
 }
 
